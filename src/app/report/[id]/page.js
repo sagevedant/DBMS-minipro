@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import Navbar from '@/components/Navbar';
@@ -9,7 +9,7 @@ import { PerformanceLineChart, PerformanceBarChart } from '@/components/ReportCh
 import PredictionCard from '@/components/PredictionCard';
 
 export default function ReportPage({ params }) {
-  const { id } = use(params);
+  const { id } = params;
   const router = useRouter();
   const [student, setStudent] = useState(null);
   const [marks, setMarks] = useState([]);
