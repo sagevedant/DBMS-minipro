@@ -83,8 +83,8 @@ export default function ReportPage({ params }) {
 
   const getMarksBadge = (m) => {
     const v = parseFloat(m);
-    if (v >= 75) return 'high';
-    if (v >= 50) return 'mid';
+    if (v >= 7.5) return 'high';
+    if (v >= 5.0) return 'mid';
     return 'low';
   };
 
@@ -159,7 +159,7 @@ export default function ReportPage({ params }) {
               <thead>
                 <tr>
                   <th>Semester</th>
-                  <th>Marks</th>
+                  <th>CGPA</th>
                   <th>Grade</th>
                   <th>Status</th>
                   <th>Actions</th>
@@ -168,17 +168,17 @@ export default function ReportPage({ params }) {
               <tbody>
                 {sortedMarks.map((m) => {
                   const v = parseFloat(m.marks);
-                  const grade = v >= 90 ? 'A+' : v >= 80 ? 'A' : v >= 70 ? 'B+' : v >= 60 ? 'B' : v >= 50 ? 'C' : v >= 40 ? 'D' : 'F';
+                  const grade = v >= 9.0 ? 'A+' : v >= 8.0 ? 'A' : v >= 7.0 ? 'B+' : v >= 6.0 ? 'B' : v >= 5.0 ? 'C' : v >= 4.0 ? 'D' : 'F';
                   return (
                     <tr key={m.id}>
                       <td>Semester {m.semester}</td>
                       <td>
                         <span className={`marks-badge ${getMarksBadge(m.marks)}`}>
-                          {parseFloat(m.marks).toFixed(2)}%
+                          {parseFloat(m.marks).toFixed(2)} CGPA
                         </span>
                       </td>
                       <td>{grade}</td>
-                      <td>{v >= 40 ? '✅ Pass' : '❌ Fail'}</td>
+                      <td>{v >= 4.0 ? '✅ Pass' : '❌ Fail'}</td>
                       <td>
                         <button
                           className="btn btn-danger btn-sm"

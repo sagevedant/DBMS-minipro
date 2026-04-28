@@ -16,7 +16,7 @@ CREATE TABLE semester_marks (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   student_id UUID REFERENCES students(id) ON DELETE CASCADE,
   semester INTEGER NOT NULL CHECK (semester >= 1 AND semester <= 8),
-  marks DECIMAL(5,2) NOT NULL CHECK (marks >= 0 AND marks <= 100),
+  marks DECIMAL(5,2) NOT NULL CHECK (marks >= 0 AND marks <= 10),
   created_at TIMESTAMPTZ DEFAULT NOW(),
   UNIQUE(student_id, semester)
 );

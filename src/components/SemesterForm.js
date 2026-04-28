@@ -21,8 +21,8 @@ export default function SemesterForm({ studentId, existingMarks, onMarksUpdated 
     const sem = parseInt(semester);
     const marksVal = parseFloat(marks);
 
-    if (!sem || isNaN(marksVal) || marksVal < 0 || marksVal > 100) {
-      showToast('Please enter valid semester and marks (0–100)', 'error');
+    if (!sem || isNaN(marksVal) || marksVal < 0 || marksVal > 10) {
+      showToast('Please enter valid semester and CGPA (0–10)', 'error');
       return;
     }
 
@@ -92,15 +92,15 @@ export default function SemesterForm({ studentId, existingMarks, onMarksUpdated 
               </select>
             </div>
             <div className="form-group">
-              <label className="form-label" htmlFor="marks-input">Marks (0–100)</label>
+              <label className="form-label" htmlFor="marks-input">CGPA (0–10)</label>
               <input
                 id="marks-input"
                 className="form-input"
                 type="number"
                 min="0"
-                max="100"
+                max="10"
                 step="0.01"
-                placeholder="e.g. 78.5"
+                placeholder="e.g. 8.5"
                 value={marks}
                 onChange={(e) => setMarks(e.target.value)}
                 required

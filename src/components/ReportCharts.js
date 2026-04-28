@@ -58,13 +58,13 @@ export function PerformanceLineChart({ marks }) {
         cornerRadius: 8,
         padding: 12,
         callbacks: {
-          label: (ctx) => `Marks: ${ctx.parsed.y}%`,
+          label: (ctx) => `CGPA: ${ctx.parsed.y}`,
         },
       },
     },
     scales: {
       y: {
-        min: 0, max: 100,
+        min: 0, max: 10,
         grid: { color: 'rgba(139, 92, 246, 0.06)' },
         ticks: { color: '#5a5a70', font: { family: 'Inter' } },
       },
@@ -94,12 +94,12 @@ export function PerformanceBarChart({ marks }) {
   const values = sorted.map(m => parseFloat(m.marks));
 
   const colors = values.map(v =>
-    v >= 75 ? 'rgba(16, 185, 129, 0.7)' :
-    v >= 50 ? 'rgba(245, 158, 11, 0.7)' :
+    v >= 7.5 ? 'rgba(16, 185, 129, 0.7)' :
+    v >= 5.0 ? 'rgba(245, 158, 11, 0.7)' :
     'rgba(239, 68, 68, 0.7)'
   );
   const borderColors = values.map(v =>
-    v >= 75 ? '#10b981' : v >= 50 ? '#f59e0b' : '#ef4444'
+    v >= 7.5 ? '#10b981' : v >= 5.0 ? '#f59e0b' : '#ef4444'
   );
 
   const data = {
@@ -131,13 +131,13 @@ export function PerformanceBarChart({ marks }) {
         cornerRadius: 8,
         padding: 12,
         callbacks: {
-          label: (ctx) => `Marks: ${ctx.parsed.y}%`,
+          label: (ctx) => `CGPA: ${ctx.parsed.y}`,
         },
       },
     },
     scales: {
       y: {
-        min: 0, max: 100,
+        min: 0, max: 10,
         grid: { color: 'rgba(139, 92, 246, 0.06)' },
         ticks: { color: '#5a5a70', font: { family: 'Inter' } },
       },

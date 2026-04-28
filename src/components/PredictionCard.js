@@ -32,19 +32,19 @@ export default function PredictionCard({ marks }) {
   const trendText = trend === 'up' ? 'Upward trend' : trend === 'down' ? 'Downward trend' : 'Stable';
 
   const getGrade = (m) => {
-    if (m >= 90) return 'A+';
-    if (m >= 80) return 'A';
-    if (m >= 70) return 'B+';
-    if (m >= 60) return 'B';
-    if (m >= 50) return 'C';
-    if (m >= 40) return 'D';
+    if (m >= 9.0) return 'A+';
+    if (m >= 8.0) return 'A';
+    if (m >= 7.0) return 'B+';
+    if (m >= 6.0) return 'B';
+    if (m >= 5.0) return 'C';
+    if (m >= 4.0) return 'D';
     return 'F';
   };
 
   return (
     <div className="prediction-card fade-in">
       <div className="prediction-label">🔮 Predicted — Semester {nextSemester > 8 ? 'Next' : nextSemester}</div>
-      <div className="prediction-value">{predictedRounded}%</div>
+      <div className="prediction-value">{predictedRounded} CGPA</div>
       <div className="prediction-sub">
         Grade: <strong>{getGrade(predictedRounded)}</strong> &nbsp;|&nbsp; {trendEmoji} {trendText}
       </div>
