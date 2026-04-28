@@ -18,7 +18,6 @@ export default function HomePage() {
       <div className="container">
         {/* Hero */}
         <div className="hero">
-          <div className="hero-badge">📊 DBMS Mini Project</div>
           <h1>
             Student <span>Performance</span><br />Tracker
           </h1>
